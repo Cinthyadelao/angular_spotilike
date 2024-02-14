@@ -25,7 +25,6 @@ import { AuthService } from './administration/auth/auth.service';
     RouterModule,
     MusicRouterModule,
     AdministrationRouterModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]
