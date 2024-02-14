@@ -1,7 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Album, Morceau } from 'src/app/models/music.model';
 import { MusicService } from '../music.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { OnlineStatusService } from 'src/online-status.service';
 
 @Component({
   selector: 'app-list-album',
@@ -10,6 +12,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ListAlbumComponent implements OnInit {
 
+  albumSubscribe!: Subscription;
+  isOnline: Boolean = true;
 
   listSongs!: Morceau[];
 
@@ -18,10 +22,21 @@ export class ListAlbumComponent implements OnInit {
   selectedAlbum: any;
   mode!: string;
 
-  constructor(private musicService: MusicService, private route: ActivatedRoute,
-    private router: Router) { }
+  constructor(
+    private musicService: MusicService, 
+    private route: ActivatedRoute,
+    private router: Router,
+    private onLineStatusService : OnlineStatusService
+    ) { }
+    
   ngOnInit(): void {
     this.getAlbums()
+  }
+
+  ngOnDestroy(): void {
+    if (this.albumSubscribe) {
+      this.albumSubscribe.unsubscribe();
+    }
   }
 
   getAlbums() {
@@ -41,6 +56,20 @@ export class ListAlbumComponent implements OnInit {
       this.router.navigate(['modificar-album', albumId]);
     } else {
       this.mode = 'create';
+    }
+
+    if (!this.albumSubscribe) {
+      this.albumSubscribe = this.onLineStatusService.connectionChanged.subscribe(
+        isOnline => {
+          if (isOnline) {
+            console.log("Chargement des données vers backend" + isOnline);
+            this.isOnline = true;
+          } else {
+            console.log("Chargement des données vers indexedDB " + isOnline);
+            this.isOnline = false;
+          }
+        }
+        );
     }
   }
 
