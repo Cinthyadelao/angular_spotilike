@@ -1,0 +1,29 @@
+<div class="container mt-3">
+  <h2 class="title">Nouveau Album</h2>
+  <button type="button" class="button_slide slide_left" (click)="goBack()">Back</button>
+  <form [formGroup]="albumForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="titre" class="form-label">Título:</label>
+      <input type="text" class="form-control" id="titre" formControlName="titre">
+    </div>
+    <div class="mb-3">
+      <label for="pochette" class="form-label">Pochette (URL):</label>
+      <input type="text" class="form-control" id="pochette" formControlName="pochette">
+    </div>
+    <div class="mb-3">
+      <label for="date_de_sortie" class="form-label">Date de sortie:</label>
+      <input type="text" class="form-control" id="date_de_sortie" formControlName="date_de_sortie">
+    </div>
+    <div class="mb-3">
+      <label for="artiste" class="form-label">Artista:</label>
+      <select class="form-control" id="artiste" formControlName="artiste">
+        <option *ngFor="let artiste of artistes" [value]="artiste._id">{{ artiste.name }}</option>
+      </select>
+    </div>
+    <button type="submit" class="button_slide slide_down">Guardar</button>
+    <div *ngIf="successMessage" class="alert alert-success">
+      {{ successMessage }}
+    </div>
+
+  </form>
+</div>

@@ -1,0 +1,18 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
+  <h3>Log In</h3>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+      formControlName="email">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+
+  </div>
+
+  <button class="button_slide slide_down" [disabled]="form.invalid" type="submit">Submit</button>
+  <div class="mb-3 form-check">
+    <a routerLink="/sign-up">Se register</a>
+  </div>
+</form>

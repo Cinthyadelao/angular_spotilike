@@ -1,0 +1,31 @@
+<div *ngIf="album" class="cardS album">
+  <div>
+    <button type="button" class="button_slide slide_left" (click)="goBack()">Regresar</button>
+
+    <h2 class="title">{{ album.titre }}</h2>
+    <p>Album</p>
+    <img [src]="album.pochette" alt="{{ album.titre }}" class="img-fluid mb-3" />
+
+
+  </div>
+
+  <div class="details">
+
+    <p><strong>Date de sortie:</strong> {{ album.date_sortie }}</p>
+    <p><strong>Artiste:</strong> {{ album.artiste.name }}</p>
+    <h3>Morceaux</h3>
+    <ul class="list-group" *ngIf="album.morceaux && album.morceaux.length">
+      <li *ngFor="let morceau of album.morceaux" class="list-group-item">
+        <h5 class="mb-1">{{ morceau.titre }}</h5>
+        <p class="mb-1"><strong>Durée</strong> {{ morceau.duree }}</p>
+        <!-- <p class="mb-1"><strong>Artiste:</strong> {{ morceau.artiste }}</p> -->
+        <p class="mb-1"><strong>Gerne:</strong> {{ morceau.genre.join(', ') }}</p>
+      </li>
+    </ul>
+    <p *ngIf="!album.morceaux || album.morceaux.length === 0" class="alert alert-info">Il n'y a pas de morceaux pour cet
+      album.
+    </p>
+    <button type="button" class="button_slide slide_down" (click)="openCrateMorceau(album._id)">Ajouter un
+      morceau</button>
+  </div>
+</div>
