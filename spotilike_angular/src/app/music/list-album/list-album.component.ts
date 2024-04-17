@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Album, Morceau } from 'src/app/models/music.model';
+import { Album } from 'src/app/models/music.model';
 import { MusicService } from '../music.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -19,23 +19,23 @@ export class ListAlbumComponent implements OnInit, OnDestroy {
   mode!: string;
 
   constructor(
-    private musicService: MusicService, 
+    private musicService: MusicService,
     private route: ActivatedRoute,
     private router: Router,
     private onlineStatusService: OnlineStatusService
   ) { }
-    
+
   ngOnInit(): void {
 
     this.getAlbums();
-    this.syncAlbumsToIndexedDB(); 
+    this.syncAlbumsToIndexedDB();
 
     this.albumSubscribe = this.onlineStatusService.connectionChanged.subscribe(isOnline => {
       this.isOnline = isOnline;
       if (isOnline) {
         console.log("Chargement des données vers backend " + isOnline);
         this.getAlbums();
-        this.syncAlbumsToIndexedDB(); 
+        this.syncAlbumsToIndexedDB();
       } else {
         console.log("Chargement des données depuis IndexedDB ");
         this.getAlbumsFromIndexedDB();

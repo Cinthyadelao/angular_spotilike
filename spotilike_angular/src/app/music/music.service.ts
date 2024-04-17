@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
-import { Album, Genre, Morceau } from '../models/music.model';
+import { Album, Genre } from '../models/music.model';
 import { IndexedDBService } from 'src/indexed.db';
 
 @Injectable({

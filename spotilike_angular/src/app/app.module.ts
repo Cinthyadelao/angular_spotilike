@@ -9,7 +9,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MusicRouterModule } from './music/music-routing.module';
 import { AdministrationRouterModule } from './administration/administration-routing.module';
-import { AuthService } from './administration/auth/auth.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 
