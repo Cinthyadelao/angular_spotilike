@@ -26,8 +26,13 @@ export class ListAlbumComponent implements OnInit, OnDestroy {
   ) { }
     
   ngOnInit(): void {
+    
+    this.getAlbums();
+    this.syncAlbumsToIndexedDB(); 
+
     this.albumSubscribe = this.onlineStatusService.connectionChanged.subscribe(isOnline => {
       this.isOnline = isOnline;
+      debugger;
       if (isOnline) {
         console.log("Chargement des données vers backend " + isOnline);
         this.getAlbums();
@@ -44,6 +49,7 @@ export class ListAlbumComponent implements OnInit, OnDestroy {
   }
 
   getAlbums() {
+    debugger;
     this.musicService.getAlbums().subscribe(
       (albums) => {
         this.listAlbums = albums;
@@ -78,8 +84,6 @@ export class ListAlbumComponent implements OnInit, OnDestroy {
     this.musicService.syncAlbumsToIndexedDB().subscribe(
       () => {
         console.log('Synchronisation des albums avec IndexedDB réussie');
-        // Appel de la fonction pour récupérer les albums depuis IndexedDB après synchronisation
-        this.getAlbumsFromIndexedDB();
       },
       (error) => {
         console.error('Erreur lors de la synchronisation des albums avec IndexedDB:', error);

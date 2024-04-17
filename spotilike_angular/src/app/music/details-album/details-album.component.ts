@@ -25,9 +25,9 @@ export class DetailsAlbumComponent implements OnInit {
   getSongsByAlbumId() {
     if (this.albumId) {
       this.musicService.getSongsByAlbumId(this.albumId).subscribe(
-        (songs) => {
-          console.log('Chansons obtenues avec succès:', songs);
-          this.morceaux = songs;
+        (response) => {
+          console.log('Chansons obtenues avec succès:', response);
+          this.morceaux = response.songs;
         },
         (error) => {
           console.error('Erreur lors de la récupération des chansons:', error);

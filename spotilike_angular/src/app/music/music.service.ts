@@ -16,13 +16,8 @@ export class MusicService {
     private indexedDBService: IndexedDBService,
   ) { }
 
-  getAlbums(): Observable<Album[]> {
-    return this.http.get<Album[]>(`${this.apiUrl}/albums`).pipe(
-      catchError((error) => {
-        console.error('Error retrieving albums from online service:', error);
-        return of([]);
-      })
-    );
+  getAlbums(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/albums`);
   }
 
   syncAlbumsToIndexedDB(): Observable<void> {
@@ -84,14 +79,8 @@ export class MusicService {
     return this.http.get<any[]>(`${this.apiUrl}/gernes`);
   }
 
-  getSongsByAlbumId(albumId: string): Observable<Morceau[]> {
-    const url = `${this.apiUrl}/albums/${albumId}/songs`;
-    return this.http.get<Morceau[]>(url).pipe(
-      catchError((error) => {
-        console.error('Erreur lors de la récupération des chansons par ID d\'album:', error);
-        return of([]);
-      })
-    );
+  getSongsByAlbumId(albumId: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/albums/${albumId}/songs`);
   }
 
   getAlbum(id: string): Observable<Album> {
