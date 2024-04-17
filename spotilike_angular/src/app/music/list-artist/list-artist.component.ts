@@ -25,10 +25,10 @@ export class ListArtistComponent {
     this.musicService.getArtistes().subscribe(
       (response) => {
         this.listArtists = response;
-        console.log('Artistas obtenidos:', this.listArtists);
+        console.log('Artistes:', this.listArtists);
       },
       (error) => {
-        console.error('Error al obtener artistas:', error);
+        console.error('Error artistes:', error);
       }
     );
     const artistId = this.route.snapshot.params['id'];
@@ -61,11 +61,11 @@ export class ListArtistComponent {
   deleteArtist(artistId: string): void {
     this.musicService.deleteArtiste(artistId).subscribe(
       (response) => {
-        console.log('Artista eliminado con éxito:', response);
+        console.log('Artiste supprimé:', response);
         this.getArtists();
       },
       (error) => {
-        console.error('Error al eliminar el artista:', error);
+        console.error('Error supression artiste:', error);
       }
     );
   }

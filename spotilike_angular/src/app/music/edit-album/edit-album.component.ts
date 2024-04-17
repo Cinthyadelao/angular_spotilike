@@ -60,11 +60,11 @@ export class EditAlbumComponent {
 
       this.musicService.updateAlbum(albumId, formData).subscribe(
         (response) => {
-          console.log('Álbum actualizado con éxito:', response);
+          console.log('Album mis à jour:', response);
           this.router.navigate(['/albums']);
         },
         (error) => {
-          console.error('Error al actualizar el álbum:', error);
+          console.error('Error mis à jour album:', error);
         }
       );
     }
@@ -73,10 +73,10 @@ export class EditAlbumComponent {
     this.musicService.getArtistes().subscribe(
       (response) => {
         this.artistes = response;
-        console.log('Lista de artistas obtenida con éxito:', this.artistes);
+        console.log('Liste des artistes obtenue avec succès:', this.artistes);
       },
       (error) => {
-        console.error('Error al obtener la lista de artistas:', error);
+        console.error('Erreur lors de l obtention de la liste des artistes:', error);
       }
     );
   }

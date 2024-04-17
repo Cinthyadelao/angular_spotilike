@@ -9,7 +9,6 @@ import { map } from 'rxjs';
 import { AuthService } from './auth.service';
 
 // export const authGuard: CanActivateFn = (route, state) => {
-//   console.log("aqui")
 //   return true;
 // };
 export const authGuard: CanActivateFn = (route, state) => {

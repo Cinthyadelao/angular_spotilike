@@ -25,10 +25,10 @@ export class AuthComponent {
     //     const { email, password } = this.form.value;
     //     this.authService.loginUser(email, password).subscribe(
     //       (response) => {
-    //         console.log('Usuario autenticado:', response);
+    //         console.log('Utilisateur authentifié:', response);
     //       },
     //       (error) => {
-    //         console.error('Error de autenticación:', error);
+    //         console.error('Error d'authentification:', error);
     //       }
     //     );
     //   }

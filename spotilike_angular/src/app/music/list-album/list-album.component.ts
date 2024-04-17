@@ -28,10 +28,10 @@ export class ListAlbumComponent implements OnInit {
     this.musicService.getAlbums().subscribe(
       (response) => {
         this.listAlbums = response;
-        console.log('Álbumes obtenidos:', this.listAlbums);
+        console.log('Albumes:', this.listAlbums);
       },
       (error) => {
-        console.error('Error al obtener álbumes:', error);
+        console.error('Error albumes:', error);
       }
     );
     const albumId = this.route.snapshot.params['id'];
@@ -73,11 +73,11 @@ export class ListAlbumComponent implements OnInit {
   deleteAlbum(albumId: string): void {
     this.musicService.deleteAlbum(albumId).subscribe(
       (response) => {
-        console.log('Álbum eliminado con éxito:', response);
+        console.log('album supprimé:', response);
         this.getAlbums();
       },
       (error) => {
-        console.error('Error al eliminar el álbum:', error);
+        console.error('Error suppression album:', error);
       }
     );
   }

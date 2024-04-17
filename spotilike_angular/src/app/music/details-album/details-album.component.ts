@@ -21,7 +21,7 @@ export class DetailsAlbumComponent implements OnInit {
   ngOnInit(): void {
     ;
     this.albumId = this.route.snapshot.params['id'];
-    console.log('ID del álbum:', this.albumId);
+    console.log('ID d album:', this.albumId);
     this.getAlbum(this.albumId);
     this.getSongsByAlbumId();
   }
@@ -30,22 +30,22 @@ export class DetailsAlbumComponent implements OnInit {
     if (this.albumId) {
       this.musicService.getSongsByAlbumId(this.albumId).subscribe(
         (songs) => {
-          console.log('Canciones obtenidas con éxito:', songs);
+          console.log('chansons obtenues:', songs);
           this.songs = songs;
         },
         (error) => {
-          console.error('Error al obtener canciones:', error);
+          console.error('Error obtention chansons:', error);
         }
       );
     } else {
-      console.error('albumId no está definido');
+      console.error('albumId non défini');
     }
   }
   getAlbum(albumId: string) {
     this.musicService.getAlbum(albumId).subscribe(
       (response) => {
         this.album = response;
-        console.log('Detalles del álbum:', this.album);
+        console.log('détails d album:', this.album);
 
         if (this.album && this.album.artiste) {
           console.log(this.album)
@@ -56,7 +56,7 @@ export class DetailsAlbumComponent implements OnInit {
         }
       },
       (error) => {
-        console.error('Error al obtener detalles del álbum:', error);
+        console.error('Error à l obtention d album:', error);
       }
     );
   }
@@ -65,10 +65,10 @@ export class DetailsAlbumComponent implements OnInit {
     this.musicService.getArtiste(artistId).subscribe(
       (artisteResponse) => {
         this.artiste = artisteResponse;
-        console.log('Detalles del artista:', this.artiste);
+        console.log('détails artiste:', this.artiste);
       },
       (error) => {
-        console.error('Error al obtener detalles del artista:', error);
+        console.error('Error détails artiste:', error);
       }
     );
   }
