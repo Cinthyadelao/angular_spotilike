@@ -21,18 +21,6 @@ export class AuthComponent {
 
   onSubmit() {
     console.log(this.form.value)
-    //   if (this.form.valid) {
-    //     const { email, password } = this.form.value;
-    //     this.authService.loginUser(email, password).subscribe(
-    //       (response) => {
-    //         console.log('Utilisateur authentifié:', response);
-    //       },
-    //       (error) => {
-    //         console.error('Error d'authentification:', error);
-    //       }
-    //     );
-    //   }
-    // }
     const { email, password } = this.form.value;
 
     this.authService.login(email, password).subscribe(

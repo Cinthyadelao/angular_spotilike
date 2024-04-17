@@ -11,12 +11,6 @@ import { ListArtistComponent } from './list-artist/list-artist.component';
 
 
 const routes: Routes = [
-    // { path: 'albums', component: ListAlbumComponent },
-    // { path: 'albums', component: CreateAlbumComponent, canActivate: [authGuard] },
-    // { path: 'albums/:id', component: EditAlbumComponent, canActivate: [authGuard] }
-    // { path: 'albums', component: ListAlbumComponent },
-    // { path: 'albums/create', component: CreateAlbumComponent },
-    // { path: 'albums/:id/edit', component: EditAlbumComponent },
     { path: 'albums', component: ListAlbumComponent },
     { path: 'albums/create', component: CreateAlbumComponent },
     { path: 'albums/:id/edit', component: EditAlbumComponent },

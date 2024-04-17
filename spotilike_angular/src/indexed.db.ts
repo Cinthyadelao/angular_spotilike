@@ -27,8 +27,8 @@ export class IndexedDBService {
     getAlbumsFromIndexedDB(): Observable<Album[]> {
         try {
             // Récupérer les albums depuis IndexedDB
-            const promise = this.dexieService.albums.toArray(); // Obtenez la promesse
-            return from(promise); // Convertissez la promesse en Observable et retournez-la
+            const promise = this.dexieService.albums.toArray();
+            return from(promise);
         } catch (error) {
             console.error('Erreur lors de la récupération des albums depuis IndexedDB:', error);
             throw error;

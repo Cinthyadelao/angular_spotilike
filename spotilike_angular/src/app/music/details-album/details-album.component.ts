@@ -53,7 +53,6 @@ export class DetailsAlbumComponent implements OnInit {
         } else {
           console.error('Album introuvable pour l\'ID spécifié:', this.albumId);
         }
-        // this.getSongsByAlbumId()
       },
       (error) => {
         console.error('Erreur lors de la récupération des albums:', error);

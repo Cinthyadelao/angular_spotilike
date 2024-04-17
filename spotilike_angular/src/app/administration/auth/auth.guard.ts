@@ -8,16 +8,10 @@ import {
 import { map } from 'rxjs';
 import { AuthService } from './auth.service';
 
-// export const authGuard: CanActivateFn = (route, state) => {
-//   return true;
-// };
 export const authGuard: CanActivateFn = (route, state) => {
-  // const authService = inject(AuthService);
-  // return authService.getAuthToken();
   if (localStorage.getItem('token')) {
     return true;
   } else {
     return false
   }
-  // })
 };

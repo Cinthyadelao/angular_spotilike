@@ -12,7 +12,6 @@ export class AppComponent implements OnInit {
   title = 'spotilike_angular';
 
   constructor(private authService: AuthService, private router: Router) { }
-  // isLog: boolean = false;
   ngOnInit(): void {
     this.authService.isLoggedIn.subscribe((loggedIn) => {
       console.log('Utilisateur authentifié:', loggedIn);

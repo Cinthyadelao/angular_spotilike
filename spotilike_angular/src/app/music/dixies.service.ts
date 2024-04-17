@@ -11,7 +11,7 @@ export class DexieService extends Dexie {
     constructor() {
         super('Spotilike database');
         this.version(1).stores({
-            albums: '++id, title, artist, year' // Définissez ici votre schéma de base de données
+            albums: '++id, title, artist, year'
         });
         this.albums = this.table('albums');
     }

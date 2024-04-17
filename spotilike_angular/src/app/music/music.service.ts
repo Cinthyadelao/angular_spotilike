@@ -87,7 +87,7 @@ export class MusicService {
     return this.http.get<Album>(`${this.apiUrl}/albums/${id}`).pipe(
       catchError((error) => {
         console.error('Erreur lors de la récupération de l\'album:', error);
-        throw error; // Propagez l'erreur pour la gérer où elle est appelée si nécessaire
+        throw error;
       })
     );
   }
