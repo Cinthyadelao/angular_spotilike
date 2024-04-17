@@ -79,9 +79,9 @@ export class MusicService {
 
   // getArtistes(): Observable<Artiste[]> {
   //   return this.http.get<Artiste[]>(`${this.apiUrl}/artistes`).pipe(
-  //     tap(data => console.log('Lista de artistas obtenida:', data)),
+  //     tap(data => console.log('Lista d artistes:', data)),
   //     catchError(error => {
-  //       console.error('Error al obtener la lista de artistas:', error);
+  //       console.error('Error liste artistes:', error);
   //       throw error;
   //     })
   //   );

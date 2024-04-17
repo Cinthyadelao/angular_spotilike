@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   // isLog: boolean = false;
   ngOnInit(): void {
     this.authService.isLoggedIn.subscribe((loggedIn) => {
-      console.log('Usuario autenticado:', loggedIn);
+      console.log('Utilisateur authentifié:', loggedIn);
       if (loggedIn) {
         this.router.navigate(['/albums']);
       }
