@@ -1,36 +1,44 @@
 import { Injectable } from '@angular/core';
-import { Album, Artiste, Genre, Morceau } from '../models/music.model';
-import { Observable, catchError, delay, of, tap } from 'rxjs';
-
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { Observable, of } from 'rxjs';
+import { catchError, switchMap } from 'rxjs/operators';
+import { Album, Genre, Morceau } from '../models/music.model';
+import { IndexedDBService } from 'src/indexed.db';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MusicService {
+  private apiUrl = 'http://localhost:5005/api';
 
-  private apiUrl = 'http://localhost:5005/api'; // Ajusta la URL según la configuración de tu servidor
+  constructor(
+    private http: HttpClient,
+    private indexedDBService: IndexedDBService,
+  ) { }
 
-  listaDeAlbums!: Album[];
-
-  constructor(private http: HttpClient) { }
-
-  getListAlbum(): Observable<Album[]> {
-    return of(this.listaDeAlbums).pipe(delay(1000));
+  getAlbums(): Observable<Album[]> {
+    return this.http.get<Album[]>(`${this.apiUrl}/albums`).pipe(
+      catchError((error) => {
+        console.error('Error retrieving albums from online service:', error);
+        return of([]);
+      })
+    );
   }
 
-  getSongsByAlbumId(albumId: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/albums/${albumId}/songs`);
+  syncAlbumsToIndexedDB(): Observable<void> {
+    return this.getAlbums().pipe(
+      catchError(error => {
+        console.error('Error synchronizing albums with IndexedDB:', error);
+        return of([]);
+      }),
+      switchMap(albums => {
+        return this.indexedDBService.syncAlbumsToIndexedDB(albums);
+      })
+    );
   }
-  getAlbum(albumId: string): Observable<Album> {
-    return this.http.get<any>(`${this.apiUrl}/albums/${albumId}`);
-  }
 
-
-
-  getAlbums(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/albums`);
+  getAlbumsFromIndexedDB(): Observable<Album[]> {
+    return this.indexedDBService.getAlbumsFromIndexedDB();
   }
 
   createAlbum(albumData: any): Observable<Album> {
@@ -64,7 +72,6 @@ export class MusicService {
     return this.http.delete(url, { headers });
   }
 
-
   getArtiste(artisteId: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/artistes/${artisteId}`);
   }
@@ -77,13 +84,22 @@ export class MusicService {
     return this.http.get<any[]>(`${this.apiUrl}/gernes`);
   }
 
-  // getArtistes(): Observable<Artiste[]> {
-  //   return this.http.get<Artiste[]>(`${this.apiUrl}/artistes`).pipe(
-  //     tap(data => console.log('Lista de artistas obtenida:', data)),
-  //     catchError(error => {
-  //       console.error('Error al obtener la lista de artistas:', error);
-  //       throw error;
-  //     })
-  //   );
-  // }
+  getSongsByAlbumId(albumId: string): Observable<Morceau[]> {
+    const url = `${this.apiUrl}/albums/${albumId}/songs`;
+    return this.http.get<Morceau[]>(url).pipe(
+      catchError((error) => {
+        console.error('Erreur lors de la récupération des chansons par ID d\'album:', error);
+        return of([]);
+      })
+    );
+  }
+
+  getAlbum(id: string): Observable<Album> {
+    return this.http.get<Album>(`${this.apiUrl}/albums/${id}`).pipe(
+      catchError((error) => {
+        console.error('Erreur lors de la récupération de l\'album:', error);
+        throw error; // Propagez l'erreur pour la gérer où elle est appelée si nécessaire
+      })
+    );
+  }
 }

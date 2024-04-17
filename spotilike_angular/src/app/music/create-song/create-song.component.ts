@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MusicService } from '../music.service';
 import { Artiste, Genre } from 'src/app/models/music.model';
@@ -9,12 +9,13 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './create-song.component.html',
   styleUrls: ['./create-song.component.css']
 })
-export class CreateSongComponent {
+export class CreateSongComponent implements OnInit {
   morceauForm!: FormGroup;
   genres: Genre[] = [];
   album!: string;
   artiste!: Artiste;
-  message: string = '';
+  message : string = '';
+
   constructor(
     private formBuilder: FormBuilder,
     private musicService: MusicService,
@@ -26,7 +27,6 @@ export class CreateSongComponent {
       this.album = params['id'];
       this.getAlbumAndArtist();
     });
-    this.getArtist();
     this.getGenres();
     this.initForm();
   }
@@ -34,16 +34,11 @@ export class CreateSongComponent {
   initForm(): void {
     this.morceauForm = this.formBuilder.group({
       titre: ['', Validators.required],
-      artiste: [this.artiste, Validators.required],
+      artiste: [this.artiste ? this.artiste.name : '', Validators.required],
       album: [this.album, Validators.required],
       duree: ['', Validators.required],
       genre: [null, Validators.required],
     });
-  }
-
-  getArtist(): void {
-    this.musicService.getAlbum(this.album).subscribe(
-      (album) => { this.artiste = album.artiste })
   }
 
   getAlbumAndArtist(): void {
@@ -53,7 +48,7 @@ export class CreateSongComponent {
         this.initForm();
       },
       (error) => {
-        console.error('Error al obtener el álbum y el artista:', error);
+        console.error('Erreur lors de la récupération de l\'album et de l\'artiste:', error);
       }
     );
   }
@@ -64,14 +59,12 @@ export class CreateSongComponent {
         this.genres = genres;
       },
       (error) => {
-        console.error('Error al obtener géneros:', error);
+        console.error('Erreur lors de la récupération des genres:', error);
       }
     );
   }
 
   crearMorceau(): void {
-    console.log(this.morceauForm.value);
-    console.log(this.morceauForm.valid);
     if (this.morceauForm.valid) {
       const morceauData = this.morceauForm.value;
       this.musicService.createMorceau(morceauData).subscribe(
@@ -81,7 +74,7 @@ export class CreateSongComponent {
         },
         (error) => {
           this.message = 'Erreur lors de la création du morceau';
-          console.error('Error al crear el morceau:', error);
+          console.error('Erreur lors de la création du morceau:', error);
         }
       );
     }

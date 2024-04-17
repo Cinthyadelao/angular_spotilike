@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Album, Artiste, Morceau } from 'src/app/models/music.model';
 import { MusicService } from '../music.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+
 @Component({
   selector: 'app-details-album',
   templateUrl: './details-album.component.html',
@@ -13,16 +13,13 @@ export class DetailsAlbumComponent implements OnInit {
   album!: Album;
   songs!: Morceau[];
   artiste!: Artiste;
-  // album$ = new BehaviorSubject<Album | null>(null);
-  // songs$ = new BehaviorSubject<Morceau[] | null>(null);
-  // artiste$ = new BehaviorSubject<Artiste | null>(null);
+
   constructor(private musicService: MusicService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    ;
     this.albumId = this.route.snapshot.params['id'];
-    console.log('ID del álbum:', this.albumId);
-    this.getAlbum(this.albumId);
+    console.log('ID de l\'album:', this.albumId);
+    this.getAlbum();
     this.getSongsByAlbumId();
   }
 
@@ -30,33 +27,36 @@ export class DetailsAlbumComponent implements OnInit {
     if (this.albumId) {
       this.musicService.getSongsByAlbumId(this.albumId).subscribe(
         (songs) => {
-          console.log('Canciones obtenidas con éxito:', songs);
+          console.log('Chansons obtenues avec succès:', songs);
           this.songs = songs;
         },
         (error) => {
-          console.error('Error al obtener canciones:', error);
+          console.error('Erreur lors de la récupération des chansons:', error);
         }
       );
     } else {
-      console.error('albumId no está definido');
+      console.error('albumId n\'est pas défini');
     }
   }
-  getAlbum(albumId: string) {
-    this.musicService.getAlbum(albumId).subscribe(
-      (response) => {
-        this.album = response;
-        console.log('Detalles del álbum:', this.album);
 
-        if (this.album && this.album.artiste) {
-          console.log(this.album)
+  getAlbum() {
+    this.musicService.getAlbums().subscribe(
+      (albums) => {
+        const album = albums.find(a => a._id === this.albumId);
+        if (album) {
+          this.album = album;
+          console.log('Détails de l\'album:', this.album);
 
-          console.log(this.album.artiste)
-          this.getArtist(this.album.artiste);
-
+          if (this.album.artiste) {
+            console.log('Artiste de l\'album:', this.album.artiste);
+            this.getArtist(this.album.artiste);
+          }
+        } else {
+          console.error('Album introuvable pour l\'ID spécifié:', this.albumId);
         }
       },
       (error) => {
-        console.error('Error al obtener detalles del álbum:', error);
+        console.error('Erreur lors de la récupération des albums:', error);
       }
     );
   }
@@ -65,45 +65,19 @@ export class DetailsAlbumComponent implements OnInit {
     this.musicService.getArtiste(artistId).subscribe(
       (artisteResponse) => {
         this.artiste = artisteResponse;
-        console.log('Detalles del artista:', this.artiste);
+        console.log('Détails de l\'artiste:', this.artiste);
       },
       (error) => {
-        console.error('Error al obtener detalles del artista:', error);
+        console.error('Erreur lors de la récupération des détails de l\'artiste:', error);
       }
     );
   }
 
-  // getAlbum(albumId: string) {
-  //   this.musicService.getAlbum(albumId).subscribe(
-  //     (response) => {
-  //       this.album.next(response);
-  //       // Resto del código...
-  //     },
-  //     (error) => {
-  //       console.error('Error al obtener detalles del álbum:', error);
-  //     }
-  //   );
-  // }
-
-  // getArtist(artistId: any) {
-  //   this.musicService.getArtiste(artistId).subscribe(
-  //     (artisteResponse) => {
-  //       this.artiste$.next(artisteResponse);
-  //       // Resto del código...
-  //     },
-  //     (error) => {
-  //       console.error('Error al obtener detalles del artista:', error);
-  //     }
-  //   );
-  // }
-
-
-  openCrateMorceau(id: string): void {
+  openCreateMorceau(id: string): void {
     this.router.navigate([`songs/${id}/create`]);
   }
 
   goBack(): void {
     this.router.navigate(['/albums']);
   }
-
 }
