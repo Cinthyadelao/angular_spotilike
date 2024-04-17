@@ -29,14 +29,14 @@ export class SignUpComponent {
       this.authService.registerUser(this.form.value).subscribe(
         (response) => {
           this.router.navigate(['/login']);
-          console.log('Usuario registrado con éxito:', response);
+          console.log('Utilisateur enregistré:', response);
         },
         (error) => {
-          console.error('Error al registrar usuario:', error);
+          console.error('Erreur d enregistrement:', error);
         }
       );
     } else {
-      console.error('El formulario no es válido');
+      console.error('Formulaire non valide');
     }
   }
 

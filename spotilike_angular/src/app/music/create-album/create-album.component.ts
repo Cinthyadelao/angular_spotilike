@@ -35,10 +35,10 @@ export class CreateAlbumComponent {
     this.musicService.getArtistes().subscribe(
       (response) => {
         this.artistes = response;
-        console.log('Lista de artistas obtenida con éxito:', this.artistes);
+        console.log('liste d artistes:', this.artistes);
       },
       (error) => {
-        console.error('Error al obtener la lista de artistas:', error);
+        console.error('Erreur liste d artistes:', error);
       }
     );
   }
@@ -49,12 +49,12 @@ export class CreateAlbumComponent {
       const newAlbum = this.albumForm.value;
       this.musicService.createAlbum(newAlbum).subscribe(
         (response) => {
-          console.log('Álbum creado con éxito:', response);
+          console.log('Álbum crée:', response);
           this.successMessage = 'Album ajouté';
           this.albumForm.reset();
         },
         (error) => {
-          console.error('Error al crear el álbum:', error);
+          console.error('Erreur creation album:', error);
         }
       );
     }

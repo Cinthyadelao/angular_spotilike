@@ -3,9 +3,6 @@
   un
   Album</button>
 
-<!-- <button type="button" class="button_slide slide_right" [ngStyle]="{'margin': '30px', 'with':'100'}"
-  (click)="openArtistes()">Artistes</button> -->
-
 <div class="albums">
   <div *ngFor="let album of listAlbums; index as i;" class="cardS">
     <img [src]="album.pochette" class="card-img-top albumPhoto" alt="...">
@@ -14,7 +11,7 @@
       <div class="albumButtons">
         <button type="button" class="button_slide slide_down" (click)="openAlbumDetail(album._id)">Details</button>
         <button type="button" class="button_slide slide_down" (click)="modifyAlbum(album._id)">Modifier</button>
-        <button type="button" class="button_slide slide_down" (click)="deleteAlbum(album._id)">Eliminer</button>
+        <button type="button" class="button_slide slide_down" (click)="deleteAlbum(album._id)">Supprimer</button>
       </div>
     </div>
   </div>

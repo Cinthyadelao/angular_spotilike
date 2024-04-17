@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Album, Artiste, Morceau } from 'src/app/models/music.model';
 import { MusicService } from '../music.service';
 import { ActivatedRoute, Router } from '@angular/router';
-
 @Component({
   selector: 'app-details-album',
   templateUrl: './details-album.component.html',
@@ -11,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class DetailsAlbumComponent implements OnInit {
   albumId!: string;
   album!: Album;
-  songs!: Morceau[];
+  morceaux!: Morceau[];
   artiste!: Artiste;
 
   constructor(private musicService: MusicService, private route: ActivatedRoute, private router: Router) { }
@@ -28,7 +27,7 @@ export class DetailsAlbumComponent implements OnInit {
       this.musicService.getSongsByAlbumId(this.albumId).subscribe(
         (songs) => {
           console.log('Chansons obtenues avec succès:', songs);
-          this.songs = songs;
+          this.morceaux = songs;
         },
         (error) => {
           console.error('Erreur lors de la récupération des chansons:', error);
@@ -54,6 +53,7 @@ export class DetailsAlbumComponent implements OnInit {
         } else {
           console.error('Album introuvable pour l\'ID spécifié:', this.albumId);
         }
+        // this.getSongsByAlbumId()
       },
       (error) => {
         console.error('Erreur lors de la récupération des albums:', error);
