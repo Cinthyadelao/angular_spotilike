@@ -17,6 +17,8 @@ export class ListAlbumComponent implements OnInit, OnDestroy {
   selectedAlbumId: string | null = null;
   selectedAlbum: any;
   mode!: string;
+  liked!: boolean;
+  isLikeShown!: boolean;
 
   constructor(
     private musicService: MusicService,
@@ -126,4 +128,17 @@ export class ListAlbumComponent implements OnInit, OnDestroy {
       }
     );
   }
+
+  receiveAlbum(album: Album) {
+    const indexalbum = this.listAlbums.findIndex(c => c._id == album._id)
+    this.listAlbums[indexalbum] = album;
+  }
+
+  receivelike(isLiked: boolean, id: string) {
+    this.liked = isLiked;
+
+  }
 }
+
+
+
