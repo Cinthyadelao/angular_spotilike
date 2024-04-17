@@ -1,7 +1,18 @@
-<button type="button" class="button_slide slide_right" [ngStyle]="{'margin': '30px', 'with':'100'}"
-  (click)="openCreateAlbum()">Créer
-  un
-  Album</button>
+<div class="button-container">
+  <button 
+    type="button" 
+    class="button_slide slide_left" 
+    [ngStyle]="{'margin': '30px', 'width':'100px'}"
+    (click)='openAddFriend()'>Ajouter un ami
+  </button>
+
+  <button 
+    type="button" 
+    class="button_slide slide_right" 
+    [ngStyle]="{'margin': '30px', 'width':'100px'}"
+    (click)="openCreateAlbum()">Créer un Album
+  </button>
+</div>
 
 <div class="albums">
   <div *ngFor="let album of listAlbums; index as i;" class="cardS">

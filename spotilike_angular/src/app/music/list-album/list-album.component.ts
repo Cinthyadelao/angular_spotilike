@@ -115,6 +115,10 @@ export class ListAlbumComponent implements OnInit, OnDestroy {
     this.router.navigate([`albums/create`]);
   }
 
+  openAddFriend() : void {
+    this.router.navigate([`albums/addFriend`])
+  }
+
   deleteAlbum(albumId: string): void {
     this.musicService.deleteAlbum(albumId).subscribe(
       (response) => {

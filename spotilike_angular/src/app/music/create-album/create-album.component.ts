@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CreateAlbumComponent {
   albumForm!: FormGroup;
   artistes: Artiste[] = [];
-  successMessage: string = '';
+  successMessage = '';
 
   constructor(private formBuilder: FormBuilder, private musicService: MusicService, private route: ActivatedRoute,
     private router: Router) { }

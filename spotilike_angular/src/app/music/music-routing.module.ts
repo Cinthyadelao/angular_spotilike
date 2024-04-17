@@ -8,10 +8,12 @@ import { EditAlbumComponent } from './edit-album/edit-album.component';
 import { DetailsAlbumComponent } from './details-album/details-album.component';
 import { CreateSongComponent } from './create-song/create-song.component';
 import { ListArtistComponent } from './list-artist/list-artist.component';
+import { AddFriendComponent } from './add-friend/add-friend.component';
 
 
 const routes: Routes = [
     { path: 'albums', component: ListAlbumComponent },
+    { path: 'albums/addFriend', component: AddFriendComponent },
     { path: 'albums/create', component: CreateAlbumComponent },
     { path: 'albums/:id/edit', component: EditAlbumComponent },
     { path: 'albums/:id', component: DetailsAlbumComponent },
