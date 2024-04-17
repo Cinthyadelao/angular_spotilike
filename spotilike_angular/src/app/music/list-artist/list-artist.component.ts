@@ -28,7 +28,7 @@ export class ListArtistComponent {
         console.log('Artistes:', this.listArtists);
       },
       (error) => {
-        console.error('Error artistes:', error);
+        console.error('Erreur artistes:', error);
       }
     );
     const artistId = this.route.snapshot.params['id'];
@@ -65,7 +65,7 @@ export class ListArtistComponent {
         this.getArtists();
       },
       (error) => {
-        console.error('Error supression artiste:', error);
+        console.error('Erreur supression artiste:', error);
       }
     );
   }

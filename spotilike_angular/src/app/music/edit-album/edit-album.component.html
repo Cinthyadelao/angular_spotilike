@@ -1,9 +1,9 @@
 <div class="container mt-3">
 
-  <button type="button" class="button_slide slide_left" (click)="goBack()">Go back</button>
+  <button type="button" class="button_slide slide_left" (click)="goBack()">Retour</button>
   <form [formGroup]="albumForm" (ngSubmit)="onSubmit()">
     <div class="mb-3">
-      <label for="titre" class="form-label">Título:</label>
+      <label for="titre" class="form-label">Titre:</label>
       <input type="text" class="form-control" id="titre" formControlName="titre">
     </div>
     <div class="mb-3">
@@ -11,11 +11,11 @@
       <input type="text" class="form-control" id="pochette" formControlName="pochette">
     </div>
     <div class="mb-3">
-      <label for="date_de_sortie" class="form-label">Fecha de Salida:</label>
+      <label for="date_de_sortie" class="form-label">Date de sortie:</label>
       <input type="text" class="form-control" id="date_de_sortie" formControlName="date_sortie">
     </div>
     <div class="mb-3">
-      <label for="artiste" class="form-label">Artista:</label>
+      <label for="artiste" class="form-label">Artiste:</label>
       <select class="form-control" id="artiste" formControlName="artiste">
         <option *ngFor="let artiste of artistes" [value]="artiste._id">{{ artiste.name }}</option>
       </select>

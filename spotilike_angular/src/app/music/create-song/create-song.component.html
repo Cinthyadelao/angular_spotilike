@@ -1,21 +1,21 @@
 <form [formGroup]="morceauForm" (ngSubmit)="crearMorceau()">
   <div class="mb-3">
-    <label for="titre" class="form-label">Título:</label>
+    <label for="titre" class="form-label">Titre:</label>
     <input type="text" class="form-control" id="titre" formControlName="titre">
   </div>
   <div class="mb-3">
-    <label for="duree" class="form-label">Duración:</label>
+    <label for="duree" class="form-label">Durée:</label>
     <input type="text" class="form-control" id="duree" formControlName="duree">
   </div>
   <div class="mb-3">
-    <label for="genre" class="form-label">Género:</label>
+    <label for="genre" class="form-label">Genre:</label>
     <select class="form-control" id="genre" formControlName="genre">
       <option *ngFor="let genre of genres" [value]="genre._id">{{ genre.titre }}</option>
     </select>
   </div>
   <input type="hidden" formControlName="album" [value]="album">
   <input type="hidden" formControlName="artiste" [value]="artiste">
-  <button type="submit" class="btn btn-primary" (click)="crearMorceau()">Crear Morceau</button>
+  <button type="submit" class="btn btn-primary" (click)="crearMorceau()">Créer Morceau</button>
   <div *ngIf="message"
     [ngClass]="{'alert alert-success': message.includes('succès'), 'alert alert-danger': message.includes('Erreur')}"
     role="alert">

@@ -31,7 +31,7 @@ export class ListAlbumComponent implements OnInit {
         console.log('Albumes:', this.listAlbums);
       },
       (error) => {
-        console.error('Error albumes:', error);
+        console.error('Erreur albums:', error);
       }
     );
     const albumId = this.route.snapshot.params['id'];
@@ -77,7 +77,7 @@ export class ListAlbumComponent implements OnInit {
         this.getAlbums();
       },
       (error) => {
-        console.error('Error suppression album:', error);
+        console.error('Erreur suppression album:', error);
       }
     );
   }

@@ -32,11 +32,11 @@ export class SignUpComponent {
           console.log('Utilisateur enregistré:', response);
         },
         (error) => {
-          console.error('Error d enregistrement:', error);
+          console.error('Erreur d enregistrement:', error);
         }
       );
     } else {
-      console.error('Fromulaire no valid');
+      console.error('Formulaire non valide');
     }
   }
 

@@ -48,7 +48,7 @@ export class EditAlbumComponent {
         });
       },
       (error) => {
-        console.error('Error al obtener detalles del álbum:', error);
+        console.error('Erreur lors de l obtention des détails de l album:', error);
       }
     );
   }
@@ -64,7 +64,7 @@ export class EditAlbumComponent {
           this.router.navigate(['/albums']);
         },
         (error) => {
-          console.error('Error mis à jour album:', error);
+          console.error('Erreur mis à jour album:', error);
         }
       );
     }

@@ -39,7 +39,7 @@ export class AuthComponent {
       () => {
       },
       (error) => {
-        console.error('Error en inicio de sesión:', error);
+        console.error('Erreur de connexion:', error);
       }
     );
   }

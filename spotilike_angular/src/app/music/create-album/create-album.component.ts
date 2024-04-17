@@ -38,7 +38,7 @@ export class CreateAlbumComponent {
         console.log('liste d artistes:', this.artistes);
       },
       (error) => {
-        console.error('Error liste d artistes:', error);
+        console.error('Erreur liste d artistes:', error);
       }
     );
   }
@@ -54,7 +54,7 @@ export class CreateAlbumComponent {
           this.albumForm.reset();
         },
         (error) => {
-          console.error('Error creation album:', error);
+          console.error('Erreur creation album:', error);
         }
       );
     }

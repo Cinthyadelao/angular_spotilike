@@ -53,7 +53,7 @@ export class CreateSongComponent {
         this.initForm();
       },
       (error) => {
-        console.error('Error al obtener el álbum y el artista:', error);
+        console.error('Erreur lors de l\'obtention de l\'artiste:', error);
       }
     );
   }
@@ -64,7 +64,7 @@ export class CreateSongComponent {
         this.genres = genres;
       },
       (error) => {
-        console.error('Error al obtener géneros:', error);
+        console.error('Erreurr d obtention des genres:', error);
       }
     );
   }
@@ -81,7 +81,7 @@ export class CreateSongComponent {
         },
         (error) => {
           this.message = 'Erreur lors de la création du morceau';
-          console.error('Error al crear el morceau:', error);
+          console.error('Erreur lors de la création du morceau:', error);
         }
       );
     }

@@ -34,7 +34,7 @@ export class DetailsAlbumComponent implements OnInit {
           this.songs = songs;
         },
         (error) => {
-          console.error('Error obtention chansons:', error);
+          console.error('Erreur d obtention chansons:', error);
         }
       );
     } else {
@@ -56,7 +56,7 @@ export class DetailsAlbumComponent implements OnInit {
         }
       },
       (error) => {
-        console.error('Error à l obtention d album:', error);
+        console.error('Erreur à l obtention d album:', error);
       }
     );
   }
