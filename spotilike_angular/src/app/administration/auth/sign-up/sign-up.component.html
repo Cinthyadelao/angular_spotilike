@@ -3,17 +3,17 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
   <h3>S'enregistrer</h3>
   <div class="mb-3">
-    <label for="userName" class="form-label">User name</label>
+    <label for="userName" class="form-label">Nom</label>
     <input type="text" class="form-control" id="userName" formControlName="username">
   </div>
   <div class="mb-3">
-    <label for="email" class="form-label">Email address</label>
+    <label for="email" class="form-label">Adresse mail</label>
     <input type="email" class="form-control" id="email" aria-describedby="emailHelp" formControlName="email">
   </div>
   <div class="mb-3">
-    <label for="password" class="form-label">Password</label>
+    <label for="password" class="form-label">Mot de passe</label>
     <input type="password" class="form-control" id="password" formControlName="password">
   </div>
 
-  <button [disabled]="form.invalid" type="submit" class="button_slide slide_down">Submit</button>
+  <button [disabled]="form.invalid" type="submit" class="button_slide slide_down">Envoyer</button>
 </form>
