@@ -8,6 +8,7 @@ export interface Album {
 }
 
 export interface Morceau {
+    _id: string;
     titre: string;
     duree: string;
     artiste: Artiste;

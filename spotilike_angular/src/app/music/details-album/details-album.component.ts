@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Album, Artiste, Morceau } from 'src/app/models/music.model';
 import { MusicService } from '../music.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 @Component({
   selector: 'app-details-album',
   templateUrl: './details-album.component.html',
@@ -11,27 +11,25 @@ import { BehaviorSubject } from 'rxjs';
 export class DetailsAlbumComponent implements OnInit {
   albumId!: string;
   album!: Album;
-  songs!: Morceau[];
+  morceaux!: Morceau[];
   artiste!: Artiste;
-  // album$ = new BehaviorSubject<Album | null>(null);
-  // songs$ = new BehaviorSubject<Morceau[] | null>(null);
-  // artiste$ = new BehaviorSubject<Artiste | null>(null);
+
   constructor(private musicService: MusicService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    ;
     this.albumId = this.route.snapshot.params['id'];
+    this.getSongsByAlbumId();
     console.log('ID d album:', this.albumId);
     this.getAlbum(this.albumId);
-    this.getSongsByAlbumId();
+
   }
 
   getSongsByAlbumId() {
     if (this.albumId) {
       this.musicService.getSongsByAlbumId(this.albumId).subscribe(
-        (songs) => {
-          console.log('chansons obtenues:', songs);
-          this.songs = songs;
+        (response) => {
+          console.log('chansons obtenues:', response);
+          this.morceaux = response.songs;
         },
         (error) => {
           console.error('Erreur d obtention chansons:', error);
@@ -45,6 +43,8 @@ export class DetailsAlbumComponent implements OnInit {
     this.musicService.getAlbum(albumId).subscribe(
       (response) => {
         this.album = response;
+        //this.album.morceaux = this.morceaux;
+        console.log(this.morceaux)
         console.log('détails d album:', this.album);
 
         if (this.album && this.album.artiste) {
@@ -54,6 +54,7 @@ export class DetailsAlbumComponent implements OnInit {
           this.getArtist(this.album.artiste);
 
         }
+        // this.getSongsByAlbumId()
       },
       (error) => {
         console.error('Erreur à l obtention d album:', error);
