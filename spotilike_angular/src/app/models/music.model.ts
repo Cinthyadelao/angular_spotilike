@@ -5,6 +5,7 @@ export interface Album {
     date_sortie: string;
     morceaux: Morceau[];
     artiste: Artiste;
+    liked?: boolean;
 }
 
 export interface Morceau {

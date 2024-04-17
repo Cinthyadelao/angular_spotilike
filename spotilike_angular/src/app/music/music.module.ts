@@ -6,7 +6,8 @@ import { CreateAlbumComponent } from './create-album/create-album.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditAlbumComponent } from './edit-album/edit-album.component';
 import { CreateSongComponent } from './create-song/create-song.component';
-import { ListArtistComponent } from './list-artist/list-artist.component'
+import { ListArtistComponent } from './list-artist/list-artist.component';
+import { LikeComponent } from './like/like.component'
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { ListArtistComponent } from './list-artist/list-artist.component'
     EditAlbumComponent,
     CreateSongComponent,
     ListArtistComponent,
+    LikeComponent,
   ],
   imports: [
     CommonModule,
