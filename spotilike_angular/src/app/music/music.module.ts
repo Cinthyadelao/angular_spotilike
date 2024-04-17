@@ -8,7 +8,7 @@ import { EditAlbumComponent } from './edit-album/edit-album.component';
 import { CreateSongComponent } from './create-song/create-song.component';
 import { ListArtistComponent } from './list-artist/list-artist.component';
 import { AddFriendComponent } from './add-friend/add-friend.component'
-
+import { LikeComponent } from './like/like.component'
 
 @NgModule({
   declarations: [
@@ -19,6 +19,7 @@ import { AddFriendComponent } from './add-friend/add-friend.component'
     CreateSongComponent,
     ListArtistComponent,
     AddFriendComponent,
+    LikeComponent,
   ],
   imports: [
     CommonModule,

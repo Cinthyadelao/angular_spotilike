@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ListAlbumComponent } from './list-album/list-album.component';
 import { CreateAlbumComponent } from './create-album/create-album.component';
-import { authGuard } from '../administration/auth/auth.guard';
 import { EditAlbumComponent } from './edit-album/edit-album.component';
 import { DetailsAlbumComponent } from './details-album/details-album.component';
 import { CreateSongComponent } from './create-song/create-song.component';
