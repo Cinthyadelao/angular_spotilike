@@ -19,7 +19,7 @@
     <p *ngIf="!morceaux || morceaux.length === 0" class="alert alert-info">Il n'y a pas de morceaux pour cet
       album.
     </p>
-    <button type="button" class="button_slide slide_down" (click)="openCreateMorceau(album._id)">Ajouter un
+    <button type="button" class="button_slide slide_down" (click)="openCreateMorceau(album.id)">Ajouter un
       morceau</button>
   </div>
 </div>

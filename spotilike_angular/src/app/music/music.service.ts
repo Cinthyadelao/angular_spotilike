@@ -9,7 +9,7 @@ import { IndexedDBService } from 'src/indexed.db';
   providedIn: 'root'
 })
 export class MusicService {
-  private apiUrl = 'http://localhost:5005/api';
+  private apiUrl = 'https://localhost:7286/api';
 
   constructor(
     private http: HttpClient,
@@ -54,6 +54,7 @@ export class MusicService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
+
     const url = `${this.apiUrl}/albums/${albumId}`;
     return this.http.delete(url, { headers });
   }
@@ -63,7 +64,12 @@ export class MusicService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-    const url = `${this.apiUrl}/artiste/${artisteId}`;
+    //para proyecto express
+    //const url = `${this.apiUrl}/artiste/${artisteId}`;
+
+    //para net
+    const url = `${this.apiUrl}/artistes/${artisteId}`;
+
     return this.http.delete(url, { headers });
   }
 
@@ -72,7 +78,11 @@ export class MusicService {
   }
 
   createMorceau(morceauData: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/songs`, morceauData);
+    //node
+    //return this.http.post<any>(`${this.apiUrl}/songs`, morceauData);
+
+    //net
+    return this.http.post<any>(`${this.apiUrl}/morceaux`, morceauData);
   }
 
   getGenres(): Observable<Genre[]> {
@@ -80,7 +90,11 @@ export class MusicService {
   }
 
   getSongsByAlbumId(albumId: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/albums/${albumId}/songs`);
+    //node
+    //return this.http.get<any>(`${this.apiUrl}/albums/${albumId}/songs`);
+
+    //net 
+    return this.http.get<any>(`${this.apiUrl}/Albums/${albumId}/morceaux`);
   }
 
   getAlbum(id: string): Observable<Album> {

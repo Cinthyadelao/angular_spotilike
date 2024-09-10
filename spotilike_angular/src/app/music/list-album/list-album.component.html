@@ -11,9 +11,9 @@
       <h5 class="card-title">{{album.titre}}</h5>
       <app-like [albumTitre]="album.titre" [album]="album" (likeAlbum)="receiveAlbum($event)"></app-like>
       <div class="albumButtons">
-        <button type="button" class="button_slide slide_down" (click)="openAlbumDetail(album._id)">Details</button>
-        <button type="button" class="button_slide slide_down" (click)="modifyAlbum(album._id)">Modifier</button>
-        <button type="button" class="button_slide slide_down" (click)="deleteAlbum(album._id)">Supprimer</button>
+        <button type="button" class="button_slide slide_down" (click)="openAlbumDetail(album.id)">Details</button>
+        <button type="button" class="button_slide slide_down" (click)="modifyAlbum(album.id)">Modifier</button>
+        <button type="button" class="button_slide slide_down" (click)="deleteAlbum(album.id)">Supprimer</button>
       </div>
     </div>
   </div>

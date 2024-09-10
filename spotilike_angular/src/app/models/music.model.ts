@@ -1,5 +1,8 @@
 export interface Album {
-    _id: string;
+    //express
+    //_id: string;
+    //net
+    id: string;
     titre: string;
     pochette: string;
     date_sortie: string;
@@ -9,7 +12,10 @@ export interface Album {
 }
 
 export interface Morceau {
-    _id : string
+    //express
+    //_id: string;
+    //net
+    id: string;
     titre: string;
     duree: string;
     artiste: Artiste;
@@ -18,7 +24,10 @@ export interface Morceau {
 }
 
 export interface Artiste {
-    _id: string;
+    //express
+    //_id: string;
+    //net
+    id: string;
     name: string;
     avatar: string;
     biographie: string;
@@ -26,7 +35,10 @@ export interface Artiste {
 
 
 export interface Genre {
-    _id: string;
+    //express
+    //_id: string;
+    //net
+    id: string;
     titre: string;
     description: string;
 }

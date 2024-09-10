@@ -6,7 +6,13 @@ import { BehaviorSubject, Observable, of, tap } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:5005/api/users';
+  //para proyecto express
+  //private apiUrl = 'http://localhost:5005/api/users';
+
+  //para proyecto asp.net
+  private apiUrl = 'http://localhost:7286';
+
+
   private loggedIn = new BehaviorSubject<boolean>(false);
 
   get isLoggedIn() {

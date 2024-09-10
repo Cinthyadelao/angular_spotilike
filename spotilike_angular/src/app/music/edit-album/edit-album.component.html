@@ -17,7 +17,7 @@
     <div class="mb-3">
       <label for="artiste" class="form-label">Artiste:</label>
       <select class="form-control" id="artiste" formControlName="artiste">
-        <option *ngFor="let artiste of artistes" [value]="artiste._id">{{ artiste.name }}</option>
+        <option *ngFor="let artiste of artistes" [value]="artiste.id">{{ artiste.name }}</option>
       </select>
     </div>
     <button type="submit" class="button_slide slide_down">Modifier</button>

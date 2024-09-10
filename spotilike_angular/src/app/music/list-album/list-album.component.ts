@@ -100,7 +100,7 @@ export class ListAlbumComponent implements OnInit, OnDestroy {
   }
 
   findAlbum(albumId: string): Album | undefined {
-    return this.listAlbums.find(album => album._id === albumId);
+    return this.listAlbums.find(album => album.id === albumId);
   }
 
   selectAlbum(album: any): void {
@@ -130,7 +130,7 @@ export class ListAlbumComponent implements OnInit, OnDestroy {
   }
 
   receiveAlbum(album: Album) {
-    const indexalbum = this.listAlbums.findIndex(c => c._id == album._id)
+    const indexalbum = this.listAlbums.findIndex(c => c.id == album.id)
     this.listAlbums[indexalbum] = album;
   }
 

@@ -10,7 +10,7 @@
   <div class="mb-3">
     <label for="genre" class="form-label">Genre:</label>
     <select class="form-control" id="genre" formControlName="genre">
-      <option *ngFor="let genre of genres" [value]="genre._id">{{ genre.titre }}</option>
+      <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.titre }}</option>
     </select>
   </div>
   <input type="hidden" formControlName="album" [value]="album">

@@ -41,7 +41,7 @@ export class DetailsAlbumComponent implements OnInit {
   getAlbum() {
     this.musicService.getAlbums().subscribe(
       (albums) => {
-        const album = albums.find(a => a._id === this.albumId);
+        const album = albums.find(a => a.id === this.albumId);
         if (album) {
           this.album = album;
           console.log('Détails de l\'album:', this.album);
