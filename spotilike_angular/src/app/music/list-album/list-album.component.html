@@ -5,7 +5,7 @@
 
 <div class="albums">
   <div *ngFor="let album of listAlbums; index as i;" class="cardS">
-    <img [src]="album.pochette" class="card-img-top albumPhoto" alt="...">
+    <img [src]="album.description" class="card-img-top albumPhoto" alt="...">
     <div class="card-body">
       <div *ngIf="album.liked">Cool! tu aime bien et Output marche 🔝</div>
       <h5 class="card-title">{{album.titre}}</h5>

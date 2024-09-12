@@ -37,7 +37,7 @@ export class MusicService {
   }
 
   createAlbum(albumData: any): Observable<Album> {
-    return this.http.post<any>(`${this.apiUrl}/albums`, albumData);
+    return this.http.post<any>(`${this.apiUrl}/Albums`, albumData);
   }
 
   getArtistes(): Observable<any[]> {

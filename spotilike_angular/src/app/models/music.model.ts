@@ -4,7 +4,7 @@ export interface Album {
     //net
     id: string;
     titre: string;
-    pochette: string;
+    description: string;
     date_sortie: string;
     morceaux: Morceau[];
     artiste: Artiste;

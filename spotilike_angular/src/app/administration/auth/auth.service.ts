@@ -10,7 +10,7 @@ export class AuthService {
   //private apiUrl = 'http://localhost:5005/api/users';
 
   //para proyecto asp.net
-  private apiUrl = 'http://localhost:7286';
+  private apiUrl = 'https://localhost:7286/api/auth';
 
 
   private loggedIn = new BehaviorSubject<boolean>(false);
@@ -25,8 +25,8 @@ export class AuthService {
     return this.http.post<any>(`${this.apiUrl}/register`, userPayload);
   }
 
-  login(email: string, password: string): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/login`, { email, password })
+  login(username: string, password: string): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/login`, { username, password })
       .pipe(
         tap((response: any) => {
           if (response.token) {

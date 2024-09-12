@@ -42,7 +42,7 @@ export class EditAlbumComponent {
       (album) => {
         this.albumForm.patchValue({
           titre: album.titre,
-          pochette: album.pochette,
+          pochette: album.description,
           date_de_sortie: album.date_sortie,
           artiste: album.artiste
         });
