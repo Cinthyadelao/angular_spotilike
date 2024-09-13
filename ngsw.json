@@ -1,0 +1,81 @@
+{
+  "configVersion": 1,
+  "timestamp": 1726242628081,
+  "index": "https://Cinthyadelao.github.io/spotilike_net/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://Cinthyadelao.github.io/spotilike_net/favicon.ico",
+        "https://Cinthyadelao.github.io/spotilike_net/index.html",
+        "https://Cinthyadelao.github.io/spotilike_net/main.14952ba6de553873.js",
+        "https://Cinthyadelao.github.io/spotilike_net/manifest.webmanifest",
+        "https://Cinthyadelao.github.io/spotilike_net/polyfills.371dcf901dad17c4.js",
+        "https://Cinthyadelao.github.io/spotilike_net/runtime.ba11462a8becdab0.js",
+        "https://Cinthyadelao.github.io/spotilike_net/styles.eb3ed11c2259241d.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://Cinthyadelao.github.io/spotilike_net/assets/icons/icon-128x128.png",
+        "https://Cinthyadelao.github.io/spotilike_net/assets/icons/icon-144x144.png",
+        "https://Cinthyadelao.github.io/spotilike_net/assets/icons/icon-152x152.png",
+        "https://Cinthyadelao.github.io/spotilike_net/assets/icons/icon-192x192.png",
+        "https://Cinthyadelao.github.io/spotilike_net/assets/icons/icon-384x384.png",
+        "https://Cinthyadelao.github.io/spotilike_net/assets/icons/icon-512x512.png",
+        "https://Cinthyadelao.github.io/spotilike_net/assets/icons/icon-72x72.png",
+        "https://Cinthyadelao.github.io/spotilike_net/assets/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://Cinthyadelao.github.io/spotilike_net/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "https://Cinthyadelao.github.io/spotilike_net/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "https://Cinthyadelao.github.io/spotilike_net/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "https://Cinthyadelao.github.io/spotilike_net/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "https://Cinthyadelao.github.io/spotilike_net/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "https://Cinthyadelao.github.io/spotilike_net/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "https://Cinthyadelao.github.io/spotilike_net/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "https://Cinthyadelao.github.io/spotilike_net/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "https://Cinthyadelao.github.io/spotilike_net/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "https://Cinthyadelao.github.io/spotilike_net/index.html": "4257a783825d8764cfab8f8ebfc8da6d6dbf00b6",
+    "https://Cinthyadelao.github.io/spotilike_net/main.14952ba6de553873.js": "e158b942a0e1aa66ef4e30615a570857b3879e04",
+    "https://Cinthyadelao.github.io/spotilike_net/manifest.webmanifest": "7fb0c5b5744f530f4076eb9cf93d360c39af583c",
+    "https://Cinthyadelao.github.io/spotilike_net/polyfills.371dcf901dad17c4.js": "aaf076aa0a1357c761cbd56334ddd1d4b0d14ac1",
+    "https://Cinthyadelao.github.io/spotilike_net/runtime.ba11462a8becdab0.js": "da3f23c77a6303c537cca62dda044f67838074ec",
+    "https://Cinthyadelao.github.io/spotilike_net/styles.eb3ed11c2259241d.css": "a1b6df0905cceadc535bc56dd97b7bda9ecf5ff4"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
