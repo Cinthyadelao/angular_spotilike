@@ -10,8 +10,8 @@ export class AuthService {
   //private apiUrl = 'http://localhost:5005/api/users';
 
   //para proyecto asp.net
-  //private apiUrl = 'https://localhost:7286/api/auth';
-  private apiUrl = 'https://spotilikewebapp-ete2amdtacc3dxcv.francecentral-01.azurewebsites.net/api/auth'
+  private apiUrl = 'https://localhost:7286/api/auth';
+  //private apiUrl = 'https://spotilikewebapp-ete2amdtacc3dxcv.francecentral-01.azurewebsites.net/api/auth'
 
   private loggedIn = new BehaviorSubject<boolean>(false);
 

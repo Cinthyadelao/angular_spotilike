@@ -9,8 +9,8 @@ import { IndexedDBService } from 'src/indexed.db';
   providedIn: 'root'
 })
 export class MusicService {
- // private apiUrl = 'https://localhost:7286/api';
-  private apiUrl ='https://spotilikewebapp-ete2amdtacc3dxcv.francecentral-01.azurewebsites.net/api'
+  private apiUrl = 'https://localhost:7286/api';
+  // private apiUrl ='https://spotilikewebapp-ete2amdtacc3dxcv.francecentral-01.azurewebsites.net/api'
   constructor(
     private http: HttpClient,
     private indexedDBService: IndexedDBService,
